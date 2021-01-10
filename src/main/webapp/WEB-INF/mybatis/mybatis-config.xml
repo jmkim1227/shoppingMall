@@ -4,14 +4,21 @@
     "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias alias="clientLoginVO" type="com.care.root.clientloginvo.ClientLoginVO"/>
-		<typeAlias alias="admindto" type="com.care.root.admindto.AdminDTO"/>
-		<typeAlias alias="goodsVO" type="com.care.root.goodsvo.GoodsVO"/>
-		<typeAlias alias="memberVO" type="com.care.root.membervo.MemberVO"/>
-		<typeAlias alias="cartVO" type="com.care.root.cartvo.CartVO"/>
-		<typeAlias alias="cartListVO" type="com.care.root.cartlistvo.CartListVO"/>
-		<typeAlias alias="orderVO" type="com.care.root.ordervo.OrderVO"/>
-		<typeAlias alias="orderDetailVO" type="com.care.root.orderdetailvo.OrderDetailVO"/>
-		<typeAlias alias="orderListVO" type="com.care.root.orderListVO.OrderListVO"/>
+		<!-- Client -->
+		<typeAlias alias="memberVO" type="com.spring.common.member.MemberVO"/>
+		<typeAlias alias="clientGoodsVO" type="com.spring.client.goods.vo.ClientGoodsVO"/>
+		<typeAlias alias="cartVO" type="com.spring.client.cart.vo.CartVO"/>
+		<typeAlias alias="cartListVO" type="com.spring.client.cart.vo.CartListVO"/>
+		<typeAlias alias="clientOrderVO" type="com.spring.client.order.vo.ClientOrderVO"/>
+		<typeAlias alias="clientOrderDetailVO" type="com.spring.client.order.vo.ClientOrderDetailVO"/>
+
+
+		<!-- Admin -->
+		<typeAlias alias="adminVO" type="com.spring.admin.login.vo.AdminVO"/>
+		<typeAlias alias="adminGoodsVO" type="com.spring.admin.goods.vo.AdminGoodsVO"/>
+		<typeAlias alias="adminOrderVO" type="com.spring.admin.order.vo.AdminOrderVO"/>
+		<typeAlias alias="adminOrderDetailVO" type="com.spring.admin.order.vo.AdminOrderDetailVO"/>
+		
+		
 	</typeAliases>
 </configuration>

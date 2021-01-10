@@ -51,7 +51,7 @@ section#content ul li { margin:10px 0; }
 <section id="container">
 		<div id="container_box">
 			<section id="content">
-			<form action="/kakaoPay" method="post">
+			<form action="/member/kakaoPayMent.do" method="post">
 				<ul>
 					<c:set var="sum" value="0" />
 					<c:forEach items="${cartList}" var="cartList">
@@ -74,13 +74,13 @@ section#content ul li { margin:10px 0; }
 								</p>
 							</div>
 						</li>
-						
-					<c:set var="sum" value="${sum + (cartList.goodsPrice * cartList.cartStock)}" />
-					<input type="hidden" value="${sum }" name="amount" id="amount">
 					<input type="hidden" value="${cartList.goodsName }" name="goodsName" id="goodsName">
 					<input type="hidden" value="${clientUser.name }" name="name" id="name">
+					<c:set var="sum" value="${sum + (cartList.goodsPrice * cartList.cartStock)}" />
 					</c:forEach>
 				</ul>
+				<input type="hidden" value="${sum }" name="amount" id="amount">
+				
 				<h3>주문자 정보</h3>
 					<table class="table table-boardered" style="border-top: 3px solid #000">
 						<tr>

@@ -58,7 +58,7 @@
 						</p>
 
 						<div class="deliveryChange">
-							<form action="/admin/orderView" method="post" class="deliveryForm">
+							<form action="/admin/orderView.do" method="post" class="deliveryForm">
 								
 								<input type="hidden" name="orderId" value="${orderView.orderId}" />
 								<input type="hidden" name="delivery" class="delivery" value="" />

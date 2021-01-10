@@ -20,7 +20,7 @@
 <body>
 <%@ include file="../admin/header.jsp" %>
 
-<form action="/admin/postgoodsModify" method="post" autocomplete="off" enctype="multipart/form-data">
+<form action="/admin/postgoodsModify.do" method="post" autocomplete="off" enctype="multipart/form-data">
 <input type="hidden" name="goodsNum" value="${goods.goodsNum}" />
 <div class="inputArea"> 
  <label>카테고리</label>
@@ -56,29 +56,11 @@
    resize_enaleb : false,
    enterMode : CKEDITOR.ENTER_BR,
    shiftEnterMode : CKEDITOR.ENTER_P,
-   filebrowserUploadUrl : "/admin/ckUpload"
+   filebrowserUploadUrl : "/admin/ckUpload.do"
  };
  
  CKEDITOR.replace("goodsContents", ckeditor_config);
 </script>
-</div>
-
-<div class="inputArea">
- <label for="goodsImage">이미지</label>
- <input type="file" id="goodsImage" name="file" />
- <div class="select_img"><img src="" /></div>
- 
- <script>
-  $("#goodsImage").change(function(){
-   if(this.files && this.files[0]) {
-    var reader = new FileReader;
-    reader.onload = function(data) {
-     $(".select_img img").attr("src", data.target.result).width(500);        
-    }
-    reader.readAsDataURL(this.files[0]);
-   }
-  });
- </script>
 </div>
 
 <div class="inputArea">
@@ -101,7 +83,7 @@
    }
   });
  </script>
- <%=request.getRealPath("/") %>
+
 </div>
 
  

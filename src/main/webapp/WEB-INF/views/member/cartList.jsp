@@ -16,7 +16,7 @@
  section#content ul li img { width:250px; height:250px; }
  section#content ul li::after { content:""; display:block; clear:both; }
  section#content div.thumb { float:left; width:250px; }
- section#content div.goodsInfo { float:right; width:calc(100% - 270px); }
+ section#content div.goodsInfo { float:right; width:calc(80% - 270px); }
  section#content div.goodsInfo { font-size:20px; line-height:2; }
  section#content div.goodsInfo span { display:inline-block; width:100px; font-weight:bold; margin-right:10px; }
  section#content div.goodsInfo .delete {float:right;}
@@ -42,10 +42,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ include file="../default/header.jsp" %>
-<section id="container">
+<section id="container" style="max-height:4	00px;">
 		<div id="container_box">
 			<section id="content">
-			<form action="/member/order" method="post">
+			<form action="/member/order.do" method="post">
 				<ul>
 					<li>
 						<div class="allCheck">
@@ -78,12 +78,12 @@
 							   });
 							    
 							   $.ajax({
-								   url : "/member/deleteCart",
+								   url : "/member/deleteCart.do",
 								   type : "post",
 								   data : { chbox : checkArr },
 								   success : function(result){
-								    if(result == 1) {          
-								     location.href = "/member/cartList";
+								    if(result == "1") {          
+								     location.href = "/member/cartList.do";
 								    } else {
 								     alert("삭제 실패");
 								    }
@@ -99,6 +99,7 @@
 					
 					<c:forEach items="${cartList}" var="cartList">
 						<li>
+						<div style="width: 80%;">
 							<div class="checkBox">
 								<input type="checkbox" name="chBox" class="chBox"
 									data-cartNum="${cartList.cartNum}" />
@@ -108,7 +109,7 @@
 									});
 								</script>
 							</div>
-
+							
 							<div class="thumb">
 								<img src="${cartList.goodsThumbImage}" />
 							</div>
@@ -140,12 +141,12 @@
 									    checkArr.push($(this).attr("data-cartNum"));
 									               
 									    $.ajax({
-									     url : "/member/deleteCart",
+									     url : "/member/deleteCart.do",
 									     type : "post",
 									     data : { chbox : checkArr },
 									     success : function(result){
 									      if(result == 1) {     
-									       location.href = "/member/cartList";
+									       location.href = "/member/cartList.do";
 									      } else {
 									       alert("삭제 실패");
 									      }
@@ -155,6 +156,7 @@
 									  });
 									 </script>
 								</div>
+							</div>
 							</div>
 						</li>
 						

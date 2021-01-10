@@ -10,10 +10,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <style>
-html,body{
-	width:100%; height:100%;
+html, body {
+	width: 100%;
+	height: 100%;
 }
-#foot{margin-top:-1.9em;height:1.9em}
+
+#foot {
+	margin-top: -1.9em;
+	height: 1.9em
+}
+
 div.goods div.goodsImage {
 	float: left;
 	width: 350px;
@@ -28,10 +34,13 @@ div.goods div.goodsInfo {
 	float: right;
 	width: 500px;
 	font-size: 18px;
-	padding-top:100px;
+	padding-top: 100px;
 }
+
 div.goodsContents {
-	font-size:18px; clear:both; padding-top:100px;
+	font-size: 18px;
+	clear: both;
+	padding-top: 100px;
 }
 </style>
 </head>
@@ -43,9 +52,9 @@ div.goodsContents {
 		<section id="container">
 			<div id="container_box">
 
-					<form action="/goods/addCart" method="post">
-						<input type="hidden" id="goodsNum" value="${view.goodsNum}" />
-					
+				<form action="/goods/addCart.do" method="post">
+					<input type="hidden" id="goodsNum" value="${view.goodsNum}" />
+
 
 					<div class="goods">
 						<div class="goodsImage">
@@ -111,7 +120,7 @@ div.goodsContents {
 							</p>
 
 							<p class="addToCart">
-							<button type="button" class="addCart_btn">카트에 담기</button>
+								<button type="button" class="addCart_btn">카트에 담기</button>
 
 								<script>
 								 $(".addCart_btn").click(function(){
@@ -125,12 +134,11 @@ div.goodsContents {
 								    };
 								  
 								  $.ajax({
-								   url : "/member/addCart",
+								   url : "/member/addCart.do",
 								   type : "post",
 								   data : data,
 								   success : function(result){
-								    
-								    if(result == 1) {
+								    if(result == "1") {
 								     alert("카트 담기 성공");
 								     $(".numBox").val("1");
 								    } else {
@@ -138,57 +146,32 @@ div.goodsContents {
 								     $(".numBox").val("1");
 								    }
 								   },
-								   error : function(){
+								   error : function(request, status, error){
+									   alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+
 								    alert("카트 담기 실패");
 								   }
 								  });
 								 });
 								</script>
-															</p>
+							</p>
 
-						<button type="button">바로 구매</button>
-						</p>
+							<button type="button">바로 구매</button>
+							</p>
 						</div>
-							<div class="goodsContents">${view.goodsContents}</div>
+						<div class="goodsContents">${view.goodsContents}</div>
 
 					</div>
-					</form>
-				</div>
+				</form>
+			</div>
 		</section>
 
-<div id="reply">
+		
 
- <c:if test="${clientUser == null }">
-  <p>소감을 남기시려면 <a href="/member/signin">로그인</a>해주세요</p>
- </c:if>
- 
- <c:if test="${clientUser != null}">
- <section class="replyForm">
-  <form role="form" method="post" autocomplete="off">
-  <input type="hidden" name="goodsNum" value="${view.goodsNum}">
-   <div class="input_area">
-    <textarea name="repCon" id="repCon"></textarea>
-   </div>
-   
-   <div class="input_area">
-    <button type="submit" id="reply_btn">소감 남기기</button>
-   </div>
-   
-  </form>
- </section>
- </c:if>
- 
- <section class="replyList">
-  <ol>
-   <li>댓글 목록</li>
-   </ol>    
- </section>
-</div>
-
-			</div>
-	<div style="clear:both;"></div>
+	</div>
+	<div style="clear: both;"></div>
 	<footer class="footer">
-	<%@ include file="../default/footer.jsp"%>
+		<%@ include file="../default/footer.jsp"%>
 	</footer>
 </body>
 </html>

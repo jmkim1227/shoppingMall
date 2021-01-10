@@ -23,12 +23,12 @@
 <body>
 <%@ include file="../admin/header.jsp" %>
 
-<form action="/admin/goodsModify" method="post" autocomplete="off">
+<form action="/admin/goodsModify.do" method="post" autocomplete="off">
 	<input type="hidden" name="n" value="${goods.goodsNum }"/>
 	
 	<div class="inputArea"> 
 		<label>카테고리</label>
-		<span class="category">${goods.category}</span>
+		<span class="category">${goods.`}</span>
 	</div>
 	
 	<div class="inputArea">
@@ -67,16 +67,16 @@
 	</div>
 </form>
 <script>
-		var formObj = $("form[action='/admin/goodsModify']");
+		var formObj = $("form[action='/admin/goodsModify.do']");
 		$("#modify_Btn").click(function() {
-			formObj.attr("action", "/admin/goodsModify");
+			formObj.attr("action", "/admin/goodsModify.do");
 			formObj.attr("method", "get")
 			formObj.submit();
 		});
 		$("#delete_Btn").click(function(){
 				 var con = confirm("정말로 삭제하시겠습니까?");
 				 if(con) {      
-				  formObj.attr("action", "/admin/goodsDelete");
+				  formObj.attr("action", "/admin/goodsDelete.do");
 				  formObj.submit();
 				 }
 			});

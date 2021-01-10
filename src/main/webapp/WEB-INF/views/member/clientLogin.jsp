@@ -12,7 +12,7 @@
 <div class="container-login100">
 <div class="wrap-login100 p-t-90 p-b-30">
 	
-	<form class="login100-form validate-form" action="/member/user_check" method="post">
+	<form class="login100-form validate-form" action="/member/user_check.do" method="post">
 	<span class="login100-form-title p-b-40"> Login </span>
 
 	<div class="wrap-input100 validate-input m-b-16">
@@ -47,7 +47,7 @@ http://localhost:8081/root/success&response_type=code" class="login100-form-titl
 	<br /><br /><br />
 	<br /><br /><br />
 	<div align="right">
-		<a href="/admin/adminlogin"><b>manage</b></a>
+		<a href="/admin/adminlogin.do"><b>manage</b></a>
 	</div>
 </div>
 </div>

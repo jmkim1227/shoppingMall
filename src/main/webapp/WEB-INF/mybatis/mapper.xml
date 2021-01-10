@@ -4,14 +4,10 @@
 	
 <mapper namespace="com.care.mybatis.myMapper">
 	<select id="user_check" resultType="memberVO">
-		select * from memberinfo where id=#{id}
+		SELECT * 
+		  FROM memberinfo
+		 WHERE id = #{id}
 	</select>
-	
-	<!-- 상품 등록 -->
-	<insert id="goodsRegister" parameterType="goodsVO">
-		insert into goodsinfo (goodsNum,goodsName,category,goodsPrice,goodsStock,goodsContents,goodsImage1,goodsThumbImage) 
-			values (goodsinfo_seq.nextval,#{goodsName},#{category},#{goodsPrice},#{goodsStock},#{goodsContents},#{goodsImage1},#{goodsThumbImage})
-	</insert>
 	
 	<!--  회원가입 -->
 	<insert id="signup" parameterType="memberVO">
@@ -20,36 +16,32 @@
     </insert>
     
     <!--  상품목록 불러오기 -->
-    <select id="goodsList" resultType="goodsVO">
+    <select id="goodsList" resultType="clientGoodsVO">
     	select  * from goodsinfo order by goodsnum desc
     </select>
     
     <!-- 상품 조회 -->
-	<select id="goodsView" resultType="goodsVO">
+	<select id="goodsView" resultType="clientGoodsVO">
 		 select * from goodsinfo where goodsNum = #{goodsNum}
 	</select>
+	
+	<!-- 메인화면 최근 등록 상품 조회 -->
+	<select id="newGoodsList" resultType="clientGoodsVO">
+		<![CDATA[
+			SELECT * 
+			  FROM (
+    				SELECT ROWNUM AS ROWCNT
+         				 , a.*
+      				  FROM goodsinfo a
+ 				  ORDER BY a.regdate DESC ) b
+  			 WHERE b.ROWCNT <= 5
+		 ]]>
+	</select>
     
-    <!-- 상품 수정 -->
-	<update id="goodsModify">
-		 update goodsinfo set
-		         goodsName = #{goodsName},
-		         category = #{category},
-		         goodsPrice = #{goodsPrice},
-		         goodsStock = #{goodsStock},
-		         goodsContents = #{goodsContents},
-		         goodsImage1 = #{goodsImage1},
-		         goodsThumbImage = #{goodsThumbImage}
-		         goodsSize = #{goodsSize}
-		     where goodsNum = ${goodsNum}
-	</update>
+   
     
-	<!-- 상품 삭제 -->
-	<delete id="goodsDelete">
-		 delete	goodsinfo where goodsNum = #{goodsNum}
-	</delete>    
-    
-    <!-- 카테고리 -->
-    <select id="list" resultType="goodsVO">
+    <!-- 상품 카테고리별 조회 -->
+    <select id="list" resultType="clientGoodsVO">
     	select  * from goodsinfo where category = #{category}
     </select>
     
@@ -90,20 +82,20 @@
 	</delete>
 	
 	<!-- 주문 정보 -->
-	<insert id="orderInfo" parameterType="orderVO">
+	<insert id="orderInfo" parameterType="clientOrderVO">
 		insert into orderinfo(orderId, id, orderRec, address , orderTel, amount,email,name,ordermessage,goodsName)
 		values(#{orderId}, #{id}, #{orderRec}, #{address},	#{orderTel}, #{amount},#{email},#{name},#{orderMessage},#{goodsName})
 	</insert>
 
 	<!-- 주문 상세 정보 -->
-	<insert id="orderInfo_Details" parameterType="orderdetailVO">
+	<insert id="orderInfo_Details" parameterType="clientOrderdetailVO">
 		insert into order_details(orderDetailsNum, orderId, goodsNum, cartStock)
 		select order_details_seq.nextval, #{orderId}, goodsNum, cartStock
 		from cart
 	</insert>
 
 	<!-- 특정 유저의 주문 목록 -->
-	<select id="orderList" resultType="orderVO">
+	<select id="orderList" resultType="clientOrderVO">
 		select
 		orderId, id, orderRec,address, orderTel, amount,orderDate,goodsName,delivery
 		from orderinfo
@@ -111,7 +103,7 @@
 	</select>
 
 	<!-- 특정 주문 목록 -->
-	<select id="orderView" resultType="orderListVO">
+	<select id="orderView" resultType="clientOrderVO">
 		select
 		o.orderId, o.id, o.orderRec, o.address,
 		o.orderTel, o.amount, o.orderDate,o.delivery,

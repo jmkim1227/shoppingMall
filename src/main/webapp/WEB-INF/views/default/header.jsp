@@ -33,26 +33,79 @@ a { text-decoration:none;
     <h3 class="w3-wide"><b><a href="/" style="color:black;">AKIII CLASSIC</a></b></h3>
   </div>
   <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
-    <a href="/default/totalList" class="w3-bar-item w3-button">전체보기</a>
-    <a href="/default/goodsList?category=sportsneakers" class="w3-bar-item w3-button">운동화/스니커즈</a>
-	<a href="/default/goodsList?category=casual" class="w3-bar-item w3-button">캐쥬얼화</a>	
-    <a href="/default/goodsList?category=sandal" class="w3-bar-item w3-button">샌들</a>
-    <a href="/default/goodsList?category=comfort" class="w3-bar-item w3-button">컴포트화</a>
-    <a href="/default/goodsList?category=woman" class="w3-bar-item w3-button">여성화</a>
+
+    <c:choose>
+    		<c:when test="${category eq 'ALL'}">
+				<a href="/default/totalList.do" class="w3-bar-item w3-button" style="background-color: #808080; color:white;">전체보기</a>
+		    	<a href="/default/goodsList.do?category=sportsneakers" class="w3-bar-item w3-button">운동화/스니커즈</a>
+				<a href="/default/goodsList.do?category=casual" class="w3-bar-item w3-button">캐쥬얼화</a>	
+			    <a href="/default/goodsList.do?category=sandal" class="w3-bar-item w3-button">샌들</a>
+			    <a href="/default/goodsList.do?category=comfort" class="w3-bar-item w3-button">컴포트화</a>
+			    <a href="/default/goodsList.do?category=woman" class="w3-bar-item w3-button">여성화</a>
+			</c:when>
+			<c:when test="${category eq 'sportsneakers'}">
+				<a href="/default/totalList.do" class="w3-bar-item w3-button">전체보기</a>
+		    	<a href="/default/goodsList.do?category=sportsneakers" class="w3-bar-item w3-button" style="background-color: #808080; color:white;">운동화/스니커즈</a>
+				<a href="/default/goodsList.do?category=casual" class="w3-bar-item w3-button">캐쥬얼화</a>	
+			    <a href="/default/goodsList.do?category=sandal" class="w3-bar-item w3-button">샌들</a>
+			    <a href="/default/goodsList.do?category=comfort" class="w3-bar-item w3-button">컴포트화</a>
+			    <a href="/default/goodsList.do?category=woman" class="w3-bar-item w3-button">여성화</a>
+			</c:when>
+			<c:when test="${category eq 'casual'}">
+				<a href="/default/totalList.do" class="w3-bar-item w3-button">전체보기</a>
+		    	<a href="/default/goodsList.do?category=sportsneakers" class="w3-bar-item w3-button">운동화/스니커즈</a>
+				<a href="/default/goodsList.do?category=casual" class="w3-bar-item w3-button" style="background-color: #808080; color:white;">캐쥬얼화</a>	
+			    <a href="/default/goodsList.do?category=sandal" class="w3-bar-item w3-button">샌들</a>
+			    <a href="/default/goodsList.do?category=comfort" class="w3-bar-item w3-button">컴포트화</a>
+			    <a href="/default/goodsList.do?category=woman" class="w3-bar-item w3-button">여성화</a>
+			</c:when>
+			<c:when test="${category eq 'sandal'}">
+				<a href="/default/totalList.do" class="w3-bar-item w3-button">전체보기</a>
+		    	<a href="/default/goodsList.do?category=sportsneakers" class="w3-bar-item w3-button">운동화/스니커즈</a>
+				<a href="/default/goodsList.do?category=casual" class="w3-bar-item w3-button">캐쥬얼화</a>	
+			    <a href="/default/goodsList.do?category=sandal" class="w3-bar-item w3-button" style="background-color: #808080; color:white;">샌들</a>
+			    <a href="/default/goodsList.do?category=comfort" class="w3-bar-item w3-button">컴포트화</a>
+			    <a href="/default/goodsList.do?category=woman" class="w3-bar-item w3-button">여성화</a>
+			</c:when>
+			<c:when test="${category eq 'comfort'}">
+				<a href="/default/totalList.do" class="w3-bar-item w3-button">전체보기</a>
+		    	<a href="/default/goodsList.do?category=sportsneakers" class="w3-bar-item w3-button">운동화/스니커즈</a>
+				<a href="/default/goodsList.do?category=casual" class="w3-bar-item w3-button">캐쥬얼화</a>	
+			    <a href="/default/goodsList.do?category=sandal" class="w3-bar-item w3-button">샌들</a>
+			    <a href="/default/goodsList.do?category=comfort" class="w3-bar-item w3-button" style="background-color: #808080; color:white;">컴포트화</a>
+			    <a href="/default/goodsList.do?category=woman" class="w3-bar-item w3-button">여성화</a>
+			</c:when>
+			<c:when test="${category eq 'woman'} ">
+				<a href="/default/totalList.do" class="w3-bar-item w3-button">전체보기</a>
+		    	<a href="/default/goodsList.do?category=sportsneakers" class="w3-bar-item w3-button">운동화/스니커즈</a>
+				<a href="/default/goodsList.do?category=casual" class="w3-bar-item w3-button">캐쥬얼화</a>	
+			    <a href="/default/goodsList.do?category=sandal" class="w3-bar-item w3-button">샌들</a>
+			    <a href="/default/goodsList.do?category=comfort" class="w3-bar-item w3-button">컴포트화</a>
+			    <a href="/default/goodsList.do?category=woman" class="w3-bar-item w3-button" style="background-color: #808080; color:white;">여성화</a>
+			</c:when>
+			<c:otherwise>
+				<a href="/default/totalList.do" class="w3-bar-item w3-button">전체보기</a>
+		    	<a href="/default/goodsList.do?category=sportsneakers" class="w3-bar-item w3-button">운동화/스니커즈</a>
+				<a href="/default/goodsList.do?category=casual" class="w3-bar-item w3-button">캐쥬얼화</a>	
+			    <a href="/default/goodsList.do?category=sandal" class="w3-bar-item w3-button">샌들</a>
+			    <a href="/default/goodsList.do?category=comfort" class="w3-bar-item w3-button">컴포트화</a>
+			    <a href="/default/goodsList.do?category=woman" class="w3-bar-item w3-button">여성화</a>
+			</c:otherwise>
+	</c:choose>
 
 	<div class="member" style="padding-top: 50px;">
   		<c:choose>
 			<c:when test="${clientUser == null}">
- 				 <a href="/member/clientLogin" class="w3-bar-item w3-button w3-padding">로그인</a>
+ 				 <a href="/member/clientLogin.do" class="w3-bar-item w3-button w3-padding">로그인</a>
 			</c:when>
 			<c:otherwise>
-				<a href="/member/clientlogout" class="w3-bar-item w3-button w3-padding">로그아웃</a>
-				<a href="/member/cartList" class="w3-bar-item w3-button w3-padding">장바구니</a>
+				<a href="/member/clientlogout.do" class="w3-bar-item w3-button w3-padding">로그아웃</a>
+				<a href="/member/cartList.do" class="w3-bar-item w3-button w3-padding">장바구니</a>
 			</c:otherwise>
 		</c:choose>
 		<c:choose>
 			<c:when test="${clientUser == null}">
-				  <a href="/member/signup" class="w3-bar-item w3-button w3-padding">회원가입</a>
+				  <a href="/member/signup_form.do" class="w3-bar-item w3-button w3-padding">회원가입</a>
 			</c:when>
 			<c:otherwise>
 			
@@ -60,14 +113,14 @@ a { text-decoration:none;
 		</c:choose>
    		<c:choose>
 			<c:when test="${clientUser == null }">
-				  <a href="/member/login" class="w3-bar-item w3-button w3-padding">마이페이지</a>
+				  <a href="/member/login.do" class="w3-bar-item w3-button w3-padding">마이페이지</a>
 			</c:when>
 			<c:otherwise>
-				  <a href="/mypage/mypage" class="w3-bar-item w3-button w3-padding">마이페이지</a>
+				  <a href="/mypage/mypage.do" class="w3-bar-item w3-button w3-padding">마이페이지</a>
 			</c:otherwise>
 		</c:choose>
   
-  <a href="/member/orderList" class="w3-bar-item w3-button w3-padding">주문조회</a>
+  <a href="/member/orderList.do" class="w3-bar-item w3-button w3-padding">주문조회</a>
   <a href="#" class="w3-bar-item w3-button w3-padding">고객센터</a>
  	 </div>
    </div>

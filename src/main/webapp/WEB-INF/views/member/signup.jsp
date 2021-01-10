@@ -46,7 +46,7 @@
 			data : {
 				id : inputed
 			},
-			url : "/member/checkId",
+			url : "/member/checkId.do",
 			success : function(data) {
 				if (inputed == "" && data == '0') {
 					$(".signupbtn").prop("disabled", true);
@@ -185,7 +185,7 @@
 </head>
 <body>
 <%@include file="../default/header.jsp" %>
-	<form action="signup" method="Post" id="info">
+	<form action="/member/signup.do" method="Post" id="info">
 		<h2>회원가입</h2>
 
 		<table class="table table-boardered">

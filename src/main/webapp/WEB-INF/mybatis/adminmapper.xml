@@ -5,21 +5,60 @@
 <mapper namespace="com.care.mybatis.adminmapper">
 
 	<!-- 관리자 로그인 -->
-	<select id="admin_check" resultType="admindto">
+	<select id="admin_check" resultType="adminVO">
 		select * from adminaccount
 		where adminid=#{adminid}
 	</select>
+	
+	    <!--  상품목록 불러오기 -->
+    <select id="goodsList" resultType="adminGoodsVO">
+    	select  * from goodsinfo order by goodsnum desc
+    </select>
+
+    <!-- 상품 조회 -->
+	<select id="goodsView" resultType="adminGoodsVO">
+		 select * from goodsinfo where goodsNum = #{goodsNum}
+	</select>
+	
+	 <!-- 상품 수정 -->
+	<update id="goodsModify">
+		 update goodsinfo set
+		         goodsName = #{goodsName},
+		         category = #{category},
+		         goodsPrice = #{goodsPrice},
+		         goodsStock = #{goodsStock},
+		         goodsContents = #{goodsContents},
+		         goodsImage1 = #{goodsImage1},
+		         goodsThumbImage = #{goodsThumbImage}
+		     where goodsNum = ${goodsNum}
+	</update>
+    
+	<!-- 상품 삭제 -->
+	<delete id="goodsDelete">
+		 delete	goodsinfo where goodsNum = #{goodsNum}
+	</delete>
+
+	<!-- 상품 등록 -->
+	<insert id="goodsRegister" parameterType="adminGoodsVO">
+		insert into goodsinfo
+		(goodsNum,goodsName,category,goodsPrice,goodsStock,goodsContents,goodsImage1,goodsThumbImage)
+		values
+		(goodsinfo_seq.nextval,#{goodsName},#{category},#{goodsPrice},#{goodsStock},#{goodsContents},#{goodsImage1},#{goodsThumbImage})
+	</insert>
+	
 
 	<!-- 모든 유저의 주문 목록 -->
-	<select id="orderList" resultType="orderVO">
+	<select id="orderList" resultType="adminOrderVO">
 		select
 		orderId, id, orderRec,address,
 		orderTel, amount, orderDate, delivery
 		from orderinfo
 	</select>
 
+
+
 	<!-- 특정 주문 목록 -->
-	<select id="orderView" resultType="orderListVO">
+	<select id="orderView" resultType="adminOrderVO">
 		select
 		o.orderId, o.id, o.orderRec,
 		o.address,
@@ -49,7 +88,7 @@
 	</update>
 	
 	<!-- 상품 수량 조절 보조 -->
-	<select id="changeStock_sub" resultType="orderDetailVO">
+	<select id="changeStock_sub" resultType="adminOrderDetailVO">
 		select
 			orderId, goodsNum, cartStock
 		from order_details

@@ -11,7 +11,7 @@
 <body>
 <%@ include file="../admin/header.jsp" %>
 
-<form action="/admin/goodsRegister" method="post" autocomplete="off" enctype="multipart/form-data">
+<form action="/admin/goodsRegister.do" method="post" autocomplete="off" enctype="multipart/form-data">
 
 <div class="inputArea"> 
  <label>카테고리</label>
@@ -48,7 +48,7 @@
    resize_enaleb : false,
    enterMode : CKEDITOR.ENTER_BR,
    shiftEnterMode : CKEDITOR.ENTER_P,
-   filebrowserUploadUrl : "/admin/ckUpload"
+   filebrowserUploadUrl : "/admin/ckUpload.do"
  };
  
  CKEDITOR.replace("goodsContents", ckeditor_config);

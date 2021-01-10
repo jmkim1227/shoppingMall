@@ -30,35 +30,35 @@ a { text-decoration:none;
 <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
   <div class="w3-container w3-display-container w3-padding-16">
     <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
-    <h3 class="w3-wide"><b><a href="/admin/index" style="color:black;">AKIII CLASSIC</a></b></h3>
+    <h3 class="w3-wide"><b><a href="/admin/index.do" style="color:black;">AKIII CLASSIC</a></b></h3>
   </div>
   <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
     <a href="#" class="w3-bar-item w3-button">전체보기</a>
-    <a href="/default/goodsList?category=sportsneakers" class="w3-bar-item w3-button">운동화/스니커즈</a>
-	<a href="/default/goodsList?category=casual" class="w3-bar-item w3-button">캐쥬얼화</a>	
-    <a href="/default/goodsList?category=sandal" class="w3-bar-item w3-button">샌들</a>
-    <a href="/default/goodsList?category=comfort" class="w3-bar-item w3-button">컴포트화</a>
-    <a href="/default/goodsList?category=woman" class="w3-bar-item w3-button">여성화</a>
+    <a href="/default/goodsList.do?category=sportsneakers" class="w3-bar-item w3-button">운동화/스니커즈</a>
+	<a href="/default/goodsList.do?category=casual" class="w3-bar-item w3-button">캐쥬얼화</a>	
+    <a href="/default/goodsList.do?category=sandal" class="w3-bar-item w3-button">샌들</a>
+    <a href="/default/goodsList.do?category=comfort" class="w3-bar-item w3-button">컴포트화</a>
+    <a href="/default/goodsList.do?category=woman" class="w3-bar-item w3-button">여성화</a>
   </div>
   		<c:choose>
 			<c:when test="${adminid != null }">
- 				<a href="/admin/adminlogout" class="w3-bar-item w3-button w3-padding">로그아웃</a>
+ 				<a href="/admin/adminlogout.do" class="w3-bar-item w3-button w3-padding">로그아웃</a>
 			</c:when>
 	
 		</c:choose>
 
    		<c:choose>
 			<c:when test="${adminid == null }">
-				  <a href="/member/login" class="w3-bar-item w3-button w3-padding">마이페이지</a>
+				  <a href="/member/login.do" class="w3-bar-item w3-button w3-padding">마이페이지</a>
 			</c:when>
 			<c:otherwise>
 				  <a href="#" class="w3-bar-item w3-button w3-padding">마이페이지</a>
 			</c:otherwise>
 		</c:choose>
   
-  <a href="/admin/goodsRegister" class="w3-bar-item w3-button w3-padding">상품 등록</a>
-  <a href="/admin/goodsList" class="w3-bar-item w3-button w3-padding">상품 목록</a>
-  <a href="/admin/orderList" class="w3-bar-item w3-button w3-padding">주문 목록</a>
+  <a href="/admin/goodsRegister.do" class="w3-bar-item w3-button w3-padding">상품 등록</a>
+  <a href="/admin/goodsList.do" class="w3-bar-item w3-button w3-padding">상품 목록</a>
+  <a href="/admin/orderList.do" class="w3-bar-item w3-button w3-padding">주문 목록</a>
   <a href="#" class="w3-bar-item w3-button w3-padding">고객센터</a>
   
    

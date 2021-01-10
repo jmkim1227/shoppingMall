@@ -42,7 +42,7 @@ a { text-decoration:none;}
 								<img src="${list.goodsThumbImage}">
 							</div>
 							<div class="goodsName">
-								<a href="/goods/shop?n=${list.goodsNum}"><b>${list.goodsName}</b></a>
+								<a href="/goods/shop.do?n=${list.goodsNum}"><b>${list.goodsName}</b></a>
 							</div>
 							<div class="goodsPrice">
 								 <span><fmt:formatNumber value="${list.goodsPrice}" pattern="###,###,###"/>원</span>

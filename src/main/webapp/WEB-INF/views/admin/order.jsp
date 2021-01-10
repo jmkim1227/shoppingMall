@@ -38,7 +38,7 @@ section#content ul li { margin:10px 0; }
 <section id="container">
 		<div id="container_box">
 			<section id="content">
-				<form action="/member/order" method="post">
+				<form action="/member/order.do" method="post">
 				<ul>
 					<c:set var="sum" value="0" />
 					<c:forEach items="${cartList}" var="cartList">

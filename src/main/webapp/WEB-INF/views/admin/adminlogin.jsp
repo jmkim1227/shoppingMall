@@ -12,7 +12,7 @@
 <div class="container-login100">
 <div class="wrap-login100 p-t-90 p-b-30">
 	
-	<form class="login100-form validate-form" action="/admin/admin_check" method="post">
+	<form class="login100-form validate-form" action="/admin/admin_check.do" method="post">
 	<span class="login100-form-title p-b-40"> Login </span>
 
 	<div class="wrap-input100 validate-input m-b-16">
@@ -41,7 +41,7 @@
 	<br /><br /><br />
 	<br /><br /><br />
 	<div align="right">
-		<a href="/member/clientLogin"><b>client</b></a>
+		<a href="/member/clientLogin.do"><b>client</b></a>
 	</div>
 </div>
 </div>

@@ -33,7 +33,7 @@
 						<div>
 							<p>
 								<span>주문번호</span><a
-									href="/admin/orderView?n=${orderList.orderId}">${orderList.orderId}</a>
+									href="/admin/orderView.do?n=${orderList.orderId}">${orderList.orderId}</a>
 							</p>
 							<p>
 								<span>주문자</span>${orderList.id}

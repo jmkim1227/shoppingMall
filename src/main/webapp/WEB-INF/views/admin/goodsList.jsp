@@ -36,7 +36,7 @@
   <tr>
    <td><img src="${list.goodsThumbImage}"></td>
    <td>
-   		<a href="/admin/goodsView?n=${list.goodsNum}">${list.goodsName}</a>
+   		<a href="/admin/goodsView.do?n=${list.goodsNum}">${list.goodsName}</a>
    </td>
    <td>${list.category}</td>
    <td>

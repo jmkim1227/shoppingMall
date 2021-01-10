@@ -61,7 +61,7 @@ a { text-decoration:none;}
 								<img src="${list.goodsThumbImage}">
 							</div>
 							<div class="goodsName">
-								<a href="/goods/shop?n=${list.goodsNum}"><b>${list.goodsName}</b></a>
+								<a href="/goods/shop.do?n=${list.goodsNum}"><b>${list.goodsName}</b></a>
 							</div>
 							<div class="goodsPrice">
 								 <span><fmt:formatNumber value="${list.goodsPrice}" pattern="###,###,###"/>원</span>
@@ -72,105 +72,7 @@ a { text-decoration:none;}
 			</section>
 		</div>
 	</section>
-  <!-- Product grid 
-  <div class="w3-row w3-grayscale" style="filter:grayscale(0%)">
-    <div class="w3-col l3 s6">
-      <div class="w3-container">
-       <div class="w3-display-container">
-        <img src="/resources/shopimages/akiiikr/0140010001923.jpg" style="width:100%">
-          <div class="w3-display-middle w3-display-hover">
-            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
-          </div>
-        </div>
-        <p>어반크래커 크림<br><b>59,000원</b></p>
-      </div>
-      
-  <div class="w3-container">
-      	 <div class="w3-display-container">
-        <img src="/resources/shopimages/akiiikr/0140010003063.jpg" style="width:100%">
-          <div class="w3-display-middle w3-display-hover">
-            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
-          	</div>
-          </div>
-       		 <p>청키삭스 트리플블랙<br>플라이 바운스 삭스 더티 블랙
-				<br><b>49,000원</b></p>
-      </div>
-    </div>
-     
-    <div class="w3-col l3 s6">
-      <div class="w3-container">
-        <div class="w3-display-container">
-          <img src="/resources/shopimages/akiiikr/0140010003203.jpg" style="width:100%">
-          <span class="w3-tag w3-display-topleft">New</span>
-          <div class="w3-display-middle w3-display-hover">
-            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
-          </div>
-        </div>
-        <p>에너지 흡수율 31% 발피로 회복 <br>[리커버리 슈즈] 범퍼 블랙
-			<br><b>69,000원</b></p>
-      </div>
-      
-      <div class="w3-container">
-      	 <div class="w3-display-container">
-        <img src="/resources/shopimages/akiiikr/0140010003313.jpg" style="width:100%">
-          <div class="w3-display-middle w3-display-hover">
-            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
-          	</div>
-          </div>
-       		 <p>Fly Bounce 폼 내장 <br>플라이 바운스 삭스 더티 블랙
-				<br><b>69,000원</b></p>
-      </div>
-    </div>
- 	<div class="w3-col l3 s6">
-      <div class="w3-container">
-        <div class="w3-display-container">
-          <img src="/resources/shopimages/akiiikr/0140010002773.jpg" style="width:100%">
-          <div class="w3-display-middle w3-display-hover">
-            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
-          </div>
-        </div>
-        <p>XF-0 블랙화이트
-			<br><b>35,100원</b></p>
-      </div>
-   	 <div class="w3-container">
-      	 <div class="w3-display-container">
-        <img src="/resources/shopimages/akiiikr/0140010002593.jpg" style="width:100%">
-          <span class="w3-tag w3-display-topleft">Sale</span>
-          <div class="w3-display-middle w3-display-hover">
-            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
-          	</div>
-          </div>
-       		 <p>에보 블랙
-				<br><b>35,100원</b></p>
-      </div>
-    </div>
-    
-	<div class="w3-col l3 s6">
-      <div class="w3-container">
-        <div class="w3-display-container">
-          <img src="/resources/shopimages/akiiikr/0140010001423.jpg" style="width:100%">
-          <div class="w3-display-middle w3-display-hover">
-            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
-          </div>
-        </div>
-        <p>고스트 화이트 블루 그린
-			<br><b>49,000원</b></p>
-      </div>
-   	 <div class="w3-container">
-      	 <div class="w3-display-container">
-        <img src="/resources/shopimages/akiiikr/0140010001833.jpg" style="width:100%">
-          <div class="w3-display-middle w3-display-hover">
-            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
-          	</div>
-          </div>
-       		 <p>럼블 화이트 오렌지
-				<br><b>69,000원</b></p>
-      </div>
-    </div>
- 
-	</div>
-	-->
-<hr>
+  
  
 <%@include file="../default/footer.jsp" %>
 <script>

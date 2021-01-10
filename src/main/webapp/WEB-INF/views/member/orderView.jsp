@@ -28,7 +28,6 @@
 </head>
 <body>
 <%@include file="../default/header.jsp" %>
-
 <section id="content">
 
  <div class="orderInfo">
